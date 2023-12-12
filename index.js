@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 require("dotenv").config();
-const cors = require('cors')
+//const cors = require('cors')
 //const helmet = require("helmet")
 
 
@@ -20,41 +20,25 @@ app.use(express.urlencoded({ extended: true }));
 
 
 //Inicializamos passport y la session de passport
-//app.use(session({ secret: 'SECRET' }));
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(session({ secret: 'SECRET' }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //middelwares
 const error404 = require('./middlewares/error404')
 const morgan = require('./middlewares/morgan')
 
 
-
-
 // Logger
 app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 
 //rutas
-// const scraperRoute= require("./routes/scraper.routes.js")
-// const loginRoutes = require("./routes/login.routes")
-// const searchRoutes = require("./routes/search.routes.js")
-// const users_sqlRoutes = require("./routes/users_sql.routes")
-// const favmovie_sqlRoutes = require("./routes/favmovie_sql.routes")
-// const adminRoutes = require("./routes/adminMongo.routes")
-// const authRoutes = require("./routes/oAuth.routes.js")
-// const dashAndNav = require("./routes/dash.routes.js")
+const apiroutes = require("./routes/api.routes")
+const usersRoutes = require("./routes/users.routes")
 
 // //Rutas Template
-// // app.use("/scraper", scraperRoute);
-// app.use('/', loginRoutes);
-// app.use('/', searchRoutes)
-// app.use('/', dashAndNav)
-// app.use('/',users_sqlRoutes);
-// app.use('/', favmovie_sqlRoutes);
-// app.use('/admin', adminRoutes);
-// app.use('/', authRoutes)
-
-
+app.use('/api', apiroutes);
+app.use('/',usersRoutes);
 
 
 //para rutas no existentes
