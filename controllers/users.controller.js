@@ -21,7 +21,7 @@ const getUser = async (req, res) => {
                     email: email,
                     username: user[0].username,
                 };
-                const token = jwt.sign(userForToken, process.env.CLIENT_SECRET, { expiresIn: '60m' });
+                const token = jwt.sign(userForToken, process.env.OAuth_SECRET, { expiresIn: '60m' });
 
                 //Almacenamos el token en las cookies
                 res.cookie("access-token", token, {
