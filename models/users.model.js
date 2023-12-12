@@ -5,35 +5,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 
-const loginUser = async (email) => {
-    let client, result;
-    try {
-        client = await pool.connect()
-        const data = await client.query(queries.logUser, [email])
-        result = data.rows[0]
-    } catch (err) {
-        console.log(err);
-        throw err;
-    } finally {
-        client.release();
-    }
-    return result
-}
 
-const logoutUser = async () => {
-    let client, result;
-    try {
-        client = await pool.connect()
-        const data = await client.query(queries.logoutUsers)
-        result = data.rows[0]
-    } catch (err) {
-        console.log(err);
-        throw err;
-    } finally {
-        client.release();
-    }
-    return result
-}
 
 const createUser = async (infouser) => {
     const { email, username, password, password2, image } = infouser;
@@ -73,9 +45,7 @@ const getUsersByEmail = async (email) => {
 
 const users = {
     getUsersByEmail,
-    createUser,
-    loginUser,
-    logoutUser
+    createUser
 }
 
 module.exports = users;

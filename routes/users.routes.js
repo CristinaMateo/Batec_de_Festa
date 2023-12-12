@@ -3,6 +3,8 @@ const usersSqlController = require("../controllers/users.controller");
 const usersSqlRouter = express.Router();
 
 usersSqlRouter.post("/addUser", usersSqlController.createUser)
-//cuando el usuario le da al boton submit de sign in se hace post seleccionando el username, el email (y la imagen?)
+
+usersSqlRouter.post("/login", usersSqlController.getUser)
+
 
 module.exports = usersSqlRouter;
