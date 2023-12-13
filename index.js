@@ -35,11 +35,12 @@ app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 //rutas
 //const apiroutes = require("./routes/api.routes")
 const usersRoutes = require("./routes/users.routes")
+//const authRoutes = require("./routes/oAuth.routes.js")
 
 // //Rutas Template
 //app.use('/api', apiroutes);
 app.use('/',usersRoutes);
-
+//app.use('/', authRoutes)
 
 //para rutas no existentes
 app.use('*',error404)
