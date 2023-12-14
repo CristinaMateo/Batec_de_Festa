@@ -4,16 +4,16 @@
     text-align: center;
     margin:5px auto;
     min-height: 100vh;
-    font-family: partyp;
+   // font-family: partyp;
     background-color: $darkgr;
     font-size: 22px;
     color: $orange;
 }
 
-@font-face {
-    font-family: "partyp";
-    src: url("/src/assets/font.ttf");
-}
+// @font-face {
+//     font-family: "partyp";
+//     src: url("/src/assets/font.ttf");
+// }
 
 body{
     display: block !important;
