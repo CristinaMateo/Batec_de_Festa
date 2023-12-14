@@ -2,19 +2,19 @@
 
 #root {
     text-align: center;
-    margin:5px auto;
+    margin: 5px auto;
     min-height: 100vh;
-   // font-family: partyp;
+    font-family: partyp;
     background-color: $darkgr;
-    font-size: 22px;
+    font-size: 25px;
     color: $orange;
 }
 
-// @font-face {
-//     font-family: "partyp";
-//     src: url("/src/assets/font.ttf");
-// }
+@font-face {
+    font-family: "partyp";
+    src: url("/src/assets/font.ttf");
+}
 
-body{
+body {
     display: block !important;
 }

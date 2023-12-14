@@ -1,0 +1,12 @@
+@import '../utils/variables.scss';
+.nav-bar{
+    list-style: none;
+
+    & li> a{
+        color: $orange;
+    }
+}
+
+li:hover{
+    background-color: $lightgr;
+}
