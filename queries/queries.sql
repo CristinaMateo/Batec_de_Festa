@@ -22,7 +22,7 @@ CREATE TABLE events (
 );
 
 --obtener todos los eventos (GET)
-SELECT title, city, address, description, event_time, event_date
+SELECT title, city, event_time, event_date
 FROM events;
 
 --obtener eventos propios (GET)

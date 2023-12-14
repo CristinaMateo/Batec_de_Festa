@@ -9,8 +9,10 @@ const Home = () => {
   useEffect(() => {
     const fetchAllEvents = async () => {
       try {
-         const reponse = await axios.get('/api/events');
+         const response = await axios.get('/api/events');
         const eventData = response.data.results;
+
+        setAllEvents(eventData);
  
       } catch (error) {
         console.error("Error fetching Pokemon details:", error);
@@ -28,7 +30,7 @@ const Home = () => {
       <section id="home">
         
         <article className="event-container">
-          <EventList  />
+          <EventList eventList={allEvents} />
         </article>
       </section>
     </>
