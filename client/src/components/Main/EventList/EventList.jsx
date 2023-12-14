@@ -1,22 +1,18 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import EventCard from "../EventCard";
+import EventCard from "./EventCard";
 
-const EventList = (/*lsita de evnetos del fetch de Home*/ ) => {
-
+const EventList = ({ eventList }) => {
 
 
   return (
     <section className="eventList">
+      {eventList == [] ? <p>No hay eventos</p> : eventList.map((events) => (
+        <Link key={`${events.event_id}-link`} className="toDetails" to={`/event/${events.title}?city=${events.city}&time=${events.event_time}&date=${events.event_date}`}>
+          <EventCard key={events.event_id} eventinfo={events} />
+        </Link>
+      ))}
 
-       Sustituir por datos de eventos!!!!
-       <EventCard />
-      {/* {allPokemon == [] ? <p>No hay pokemon</p> :
-        allPokemon.map((pokemon, index) => (
-          <Link className="toDetails" to={`event/id?`}><EventCard key={index} pokemon={pokemon} /></Link>
-        ))
-
-      }  */}
     </section>
   );
 };

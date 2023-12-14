@@ -1,21 +1,24 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import axios from 'axios'
 import EventList from '../EventList'
+import Loader from '../Loader'
 
 const Home = () => {
 
   const [allEvents, setAllEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const fetchAllEvents = async () => {
       try {
-         const response = await axios.get('/api/events');
-        const eventData = response.data.results;
-
+        setIsLoading(true)
+        const response = await axios.get('http://localhost:3000/api/events');
+        const eventData = response.data;
         setAllEvents(eventData);
- 
+        setIsLoading(false)
       } catch (error) {
-        console.error("Error fetching Pokemon details:", error);
+        console.error("Error fetching event details:", error);
       }
     };
 
@@ -28,9 +31,10 @@ const Home = () => {
   return (
     <>
       <section id="home">
-        
+
         <article className="event-container">
-          <EventList eventList={allEvents} />
+          {isLoading && <Loader/>}
+          {!isLoading && allEvents && <EventList eventList={allEvents} />}
         </article>
       </section>
     </>

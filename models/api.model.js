@@ -1,5 +1,5 @@
-const queries = require('../queries/events_sql.queries')
-const pool = require('../config/db_pgsql')
+const queries = require('../queries/events_sql.queries');
+const pool = require('../config/db_pgsql');
 
 
 //GET
@@ -7,8 +7,8 @@ const getAllEvents= async () => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.getAllEvents)
-        result = data.rows
+        const data = await client.query(queries.getEvents)
+        result = data.rows       
     } catch (err) {
         console.log(err);
         throw err;

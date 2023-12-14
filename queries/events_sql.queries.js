@@ -1,5 +1,5 @@
-const queries ={
-    getAllEvents:`SELECT title, city, event_time, event_date
+const queries = {
+    getEvents:`SELECT title, city, event_time, event_date, event_id
     FROM events;`,
     getMyEvents:`SELECT title, city, address, description, event_time, event_date
     FROM events AS e
@@ -26,3 +26,5 @@ const queries ={
         AND e.title = $1
         AND u.email = $2;`
 }
+
+module.exports = queries

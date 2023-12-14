@@ -1,15 +1,18 @@
 import React from "react";
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import Loader from "../Loader";
 
 const Details = () => {
 
   const { id } = useParams();
   const [eventDet, setEventDet] = useState();
+  const [isLoading, setIsLoading] = useState(false)
+
 
   useEffect(() => {
-
-  //Función detalles del envento!
+    setIsLoading(true)
+    //Función detalles del envento!
 
     /* const fetchPokeDet = async () => {
       try {
@@ -42,21 +45,21 @@ const Details = () => {
 
   return (
 
-<section>
-  <p>Cargando detalles del evento...</p>
+    <section>
+      {isLoading && !eventDet && <Loader/>}
 
-  <article>
-    Mostrar aquí detalles del evento:
-    Título:
-    Ciudad:
-    Imagen:
-    Dirección:
-    Fecha:
-    Hora:
-    Descripción
-  </article>
+      <article>
+        Mostrar aquí detalles del evento:
+        Título:
+        Ciudad:
+        Imagen:
+        Dirección:
+        Fecha:
+        Hora:
+        Descripción
+      </article>
 
-</section>
+    </section>
 
   );
 };

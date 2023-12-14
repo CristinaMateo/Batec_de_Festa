@@ -3,11 +3,11 @@ const api = require('../models/api.model')
 const getAllEvents = async (req, res) => {
     let events;
     try {
-        events = await api.getAllEvents();//esto accede a entries.models y llama a esa funcion allí
+        events = await api.getAllEvents();//esto accede a models y llama a esa funcion allí
         res.status(200).json(events); // [] con las entries encontradas
     } catch (error) {
         res.status(400).json({
-            msg: "Error getting event"
+            msg: "Error getting events"
         })
     }
 }

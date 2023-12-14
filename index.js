@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 require("dotenv").config();
 const path = require('path');
-//const cors = require('cors')
+const cors = require('cors')
 //const helmet = require("helmet")
 
 
@@ -15,15 +15,15 @@ const session = require("express-session");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//app.use(cors({origin:''}))
+app.use(cors({origin:'http://localhost:5173'}))
 // Use Helmet!
 //app.use(helmet());
 
 
 //Inicializamos passport y la session de passport
-app.use(session({ secret: 'SECRET' }));
+/* app.use(session({ secret: 'SECRET' }));
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); */
 
 //middelwares
 const error404 = require('./middlewares/error404')
