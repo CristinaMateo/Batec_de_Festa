@@ -26,14 +26,11 @@ const Update = () => {
       event_date:data.event_date
     }
     try{
-      axios.post(`/updatevent/${oldtitle}?/${email}?`)
+      axios.put(`http://localhost:3000/api/events/${oldtitle}/${email}`, Event)
     }catch (error) {
       console.error("Error updating event", error);
     }
   } 
-
- 
-
  
     reset()
   
