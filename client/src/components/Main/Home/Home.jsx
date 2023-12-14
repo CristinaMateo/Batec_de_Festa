@@ -4,11 +4,14 @@ import EventList from '../EventList'
 
 const Home = () => {
 
+  const [allEvents, setAllEvents] = useState([]);
+
   useEffect(() => {
     const fetchAllEvents = async () => {
       try {
-        
-
+         const reponse = await axios.get('/api/events');
+        const eventData = response.data.results;
+ 
       } catch (error) {
         console.error("Error fetching Pokemon details:", error);
       }

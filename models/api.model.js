@@ -55,7 +55,7 @@ const createEvent = async (eventinfo) => {
 
 //UPDATE
 const updateEvent = async (eventinfo) => {
-    const { title, city, address, description, event_time, event_date, oldTitle, email} = eventinfo;
+    const { title, city, address, description, event_time, event_date, oldiTtle, email} = eventinfo;
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion

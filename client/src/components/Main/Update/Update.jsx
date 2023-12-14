@@ -16,24 +16,32 @@ const Update = () => {
   } = useForm()
 
   const onSubmit = (data) => {
-    createEvent(new Event(
-      data.title,
-      data.image,
-      data.city,
-      data.location,
-      data.description,
-      data.event_time,
-      data.event_date
-    ))
+    const Event ={
+      title:data.title,
+      image:data.image,
+      city:data.city,
+      location:data.location,
+      description:data.description,
+      event_time:data.event_time,
+      event_date:data.event_date
+    }
+  } 
+
+  try{
+    const response = await axios.post(`/updatevent/${oldtitle}?/${email}?`)
+  }catch (error) {
+    console.error("Error updating event", error);
+  }
+
  
     reset()
-  }
+  
 
   return (
     <form className="update" onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="title">Event title:</label>
-      <input type="text" {...register("title", { required: true, minLength: 3 })} />
-      {errors.title && <span>Title needs to have at least 3 characters. Required</span>}
+      <label htmlFor="oldtitle">Event title:</label>
+      <input type="text" {...register("oldtitle", { required: true, minLength: 3 })} />
+      {errors.oldtitle && <span>Title needs to have at least 3 characters. Required</span>}
 
       <label htmlFor="title">Want to change your event title? (optional)</label>
       <input type="text" {...register("title", { required: false, minLength: 3 })} />
