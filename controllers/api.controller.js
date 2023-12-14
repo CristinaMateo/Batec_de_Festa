@@ -23,8 +23,19 @@ const createEvent = async (req, res) => {
     });
 }
 
+
+const updateEvents = async (req, res) => {
+
+}
+
+const deleteEvents = async (req, res) => {
+    
+}
+
 module.exports ={
     getAllEvents,
     getMyEvents,
-    createEvent
+    createEvent,
+    updateEvents,
+    deleteEvents
 }
