@@ -1,6 +1,7 @@
 import React  from "react";
 import { useForm } from "react-hook-form";
-import Event from "../../Object/Event";
+import axios from 'axios'
+
 
 const Update = () => {
 
@@ -26,7 +27,7 @@ const Update = () => {
       event_date:data.event_date
     }
     try{
-      axios.put(`http://localhost:3000/api/events/${oldtitle}/${email}`, Event)
+      axios.put(`http://localhost:3000/api/myevents/${oldtitle}/${email}`, Event)
     }catch (error) {
       console.error("Error updating event", error);
     }

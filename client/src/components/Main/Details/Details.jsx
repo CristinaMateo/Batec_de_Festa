@@ -7,48 +7,46 @@ const Details = () => {
 
   const { id } = useParams();
   const [eventDet, setEventDet] = useState();
+  const [searchParams] = useSearchParams();
+
   const [isLoading, setIsLoading] = useState(false)
 
 
   useEffect(() => {
     setIsLoading(true)
     //Función detalles del envento!
-
-    /* const fetchPokeDet = async () => {
+    const fetchEventsDet = async () => {
       try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        const response = await fetch(`http://localhost:3000/api/events/${id}`);
         const data = await response.json();
 
-        setPokemonDet({
+        setEventDet({
           id: data.id,
-          name: data.name,
-          image: data.sprites.other.home.front_default,
-          typeOne: data.types[0].type.name,
-          typeTwo: data.types[1]?.type.name,
+          title: data.title,
+          city: data.city,
+          time: data.event_time,
+          date: data.event_date,
           ...data
         })
       } catch (error) {
-        setPokemonDet({
+        setEventDet({
           id: id,
-          name: searchParams.get('name'),
-          image: searchParams.get('image'),
-          typeOne: searchParams.get('typeOne'),
-          typeTwo: searchParams.get('typeTwo')
+          title: searchParams.get('title'),
+          city: searchParams.get('city'),
+          time: searchParams.get('event_time'),
+          date: searchParams.get('event_date'),
         })
-
       }
 
     }
-    fetchPokeDet(); */
-  }, []);
-
+    fetchEventsDet();
+  },[]);
 
   return (
-
     <section>
-      {isLoading && !eventDet && <Loader/>}
+      {isLoading && !eventDet && <Loader />}
 
-      <article>
+      <article id="eventDet">
         Mostrar aquí detalles del evento:
         Título:
         Ciudad:
