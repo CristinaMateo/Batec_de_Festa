@@ -37,7 +37,7 @@ const Update = () => {
   
 
   return (
-    <form className="update" onSubmit={handleSubmit(onSubmit)}>
+    <form className="new" onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="oldtitle">Event title:</label>
       <input type="text" {...register("oldtitle", { required: true, minLength: 3 })} />
       {errors.oldtitle && <span>Title needs to have at least 3 characters. Required</span>}

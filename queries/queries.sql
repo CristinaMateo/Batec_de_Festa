@@ -14,6 +14,7 @@ CREATE TABLE events (
   user_id int,
 	FOREIGN KEY (user_id) REFERENCES users (user_id),
   title varchar(45) NOT NULL,
+  image text NOT NULL,
   city varchar(45) NOT NULL,
   address text NOT NULL,
   description text NOT NULL,
@@ -22,21 +23,26 @@ CREATE TABLE events (
 );
 
 --obtener todos los eventos (GET)
-SELECT title, city, event_time, event_date
-FROM events;
+SELECT title, city, image, event_time, event_date, event_id,address,description
+    FROM events;
 
 --obtener eventos propios (GET)
-SELECT title, city, address, description, event_time, event_date
-FROM events AS e
-INNER JOIN users AS u
-ON e.user_id=u.user_id
-WHERE u.email = $1;
+SELECT title, image, city, address, description, event_time, event_date
+    FROM events AS e
+    INNER JOIN users AS u
+    ON e.user_id=u.user_id
+    WHERE u.email = $1;
+
+--Obtener un solo evento(GET)
+SELECT title, city, image, event_time, event_date, event_id, address, description
+    FROM events
+    WHERE event_id=$1;
 
 
 --Crear nuevo evento (POST)
-INSERT INTO events(title, city, address, description, event_time, event_date, user_id)
-  VALUES ($1, $2, $3, $4, $5, $6,
-  SELECT user_id FROM users WHERE email=$7));
+INSERT INTO events(title, image, city, address, description, event_time, event_date, user_id)
+  VALUES ($1, $2, $3, $4, $5, $6, $7
+  SELECT user_id FROM users WHERE email=$8));
 
 --Format example
 /* INSERT INTO events(title, city, address, description, event_time, event_date, user_id)

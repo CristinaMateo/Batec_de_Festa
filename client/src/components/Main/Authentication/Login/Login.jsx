@@ -4,18 +4,18 @@ const Login = () => {
   return (
     <section>
       <h2>Log in</h2>
-    <form className="new" >
+      <form className="new" >
 
-      <label htmlFor="email">Email:</label>
-      <input type="text" />
+        <label htmlFor="email">Email:</label>
+        <input type="text" />
 
-      <label htmlFor="password">Password:</label>
-      <input type="text"/>
-      
+        <label htmlFor="password">Password:</label>
+        <input type="text" />
 
-      <button >Log in</button>
 
-    </form>
+        <button >Log in</button>
+
+      </form>
     </section>
   );
 };

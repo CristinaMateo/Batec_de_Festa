@@ -8,11 +8,11 @@ const EventCard = ({events}) => {
   return (
     <article className="card" key={events.event_id}>
       <h3>{events.title}</h3>
+      <img className="eventImg" src={events.image} alt="imagen del evento" />
       <p>Ciudad: {events.city}</p>
-      <p>Fecha: {events.event_date}</p>
-      <p>Hora: {events.event_time}</p>
-      <p>Lugar: {events.address}</p>
-      <p>Descripción: {events.description}</p>
+      <p>Fecha: {events.event_date.slice(0, 10)}</p>
+      
+      
     </article>
   );
 };

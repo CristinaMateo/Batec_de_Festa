@@ -1,12 +1,12 @@
 const queries = {
-    getEvents:`SELECT title, city, event_time, event_date, event_id,address,description
+    getEvents:`SELECT title, city, image, event_time, event_date, event_id,address,description
     FROM events;`,
-    getMyEvents:`SELECT title, city, address, description, event_time, event_date
+    getMyEvents:`SELECT title, image, city, address, description, event_time, event_date
     FROM events AS e
     INNER JOIN users AS u
     ON e.user_id=u.user_id
     WHERE u.email = $1;`,
-    getOneEvent:`SELECT title, city, event_time, event_date, event_id, address, description
+    getOneEvent:`SELECT title, city, image, event_time, event_date, event_id, address, description
     FROM events
     WHERE event_id=$1;`,
     createEvent:`INSERT INTO events(title, city, address, description, event_time, event_date, user_id)
