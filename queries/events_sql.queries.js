@@ -1,5 +1,5 @@
 const queries = {
-    getEvents:`SELECT title, city, event_time, event_date, event_id
+    getEvents:`SELECT title, city, event_time, event_date, event_id,address,description
     FROM events;`,
     getMyEvents:`SELECT title, city, address, description, event_time, event_date
     FROM events AS e

@@ -23,7 +23,7 @@ const getOneEvent= async (id) => {
     try {
         client = await pool.connect(); // Espera a abrir conexion
         const data = await client.query(queries.getOneEvent, [id])
-        result = data.rows       
+        result = data.rows  
     } catch (err) {
         console.log(err);
         throw err;
@@ -40,7 +40,7 @@ const getMyEvents = async (email) => {
     try {
         client = await pool.connect(); // Espera a abrir conexion a bbdd
         const data = await client.query(queries.getMyEvents, [email])
-        result = data.rows
+        result = data.rows[0]
     } catch (err) {
         console.log(err);
         throw err;

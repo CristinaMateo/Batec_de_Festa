@@ -15,7 +15,7 @@ const getAllEvents = async (req, res) => {
 const getOneEvent = async (req, res) => {
     let events;
     try {
-        events = await api.getOneEvent(req.query.id);//esto accede a models y llama a esa funcion allí
+        events = await api.getOneEvent(req.params.id);//esto accede a models y llama a esa funcion allí
         res.status(200).json(events); // [] con las entries encontradas
     } catch (error) {
         res.status(400).json({

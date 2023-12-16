@@ -7,9 +7,9 @@ const EventList = ({ eventList }) => {
 
   return (
     <section className="eventList">
-      {eventList == [] ? <p>No hay eventos</p> : eventList.map((events) => (
-        <Link key={`${events.event_id}-link`} className="toDetails" to={`http://localhost:3000/api/events/${events.title}?city=${events.city}&time=${events.event_time}&date=${events.event_date}`}>
-          <EventCard key={events.event_id} eventinfo={events} />
+      {eventList == [] ? <p>No hay eventos</p> : eventList.map((events, index) => (
+        <Link className="toDetails" to={`/event/${events.event_id}?city=${events.city}&time=${events.event_time}&date=${events.event_date}&title=${events.title}&address=${events.address}&description=${events.description}`}>
+          <EventCard key={index} events={events} />
         </Link>
       ))}
 

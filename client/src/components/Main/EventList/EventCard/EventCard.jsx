@@ -1,17 +1,16 @@
 import React from "react";
 
-const EventCard = ({eventinfo}) => {
-  if (!eventinfo) {
+const EventCard = ({events}) => {
+  if (!events) {
     return null;
   }
-console.log(eventinfo)
   
   return (
-    <article className="card" key={eventinfo.event_id}>
-      <h3>{eventinfo.title}</h3>
-      <p>Ciudad: {eventinfo.city}</p>
-      <p>Fecha:{eventinfo.event_date}</p>
-      <p>Hora:{eventinfo.event_time}</p>
+    <article className="card" key={events.event_id}>
+      <h3>{events.title}</h3>
+      <p>Ciudad: {events.city}</p>
+      <p>Fecha:{events.event_date}</p>
+      <p>Hora:{events.event_time}</p>
     </article>
   );
 };
