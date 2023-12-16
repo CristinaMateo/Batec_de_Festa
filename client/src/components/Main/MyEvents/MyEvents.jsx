@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import EventList from '../EventList'
+import { Navigate } from "react-router-dom";
+import { whoIsLogged } from "../Authentication/utils";
 
 const MyEvents = () => {
-  
+
   const loggedUser = whoIsLogged()
   if (!loggedUser) {
     console.log("User not logged")
