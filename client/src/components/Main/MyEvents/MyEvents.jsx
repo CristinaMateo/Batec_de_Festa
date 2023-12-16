@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import EventList from '../EventList'
 
 const MyEvents = () => {
-
+  
+  const loggedUser = whoIsLogged()
+  if (!loggedUser) {
+    console.log("User not logged")
+    return <Navigate to="/auth" />
+  }
   useEffect(() => {
     const fetchAllEvents = async () => {
       try {

@@ -26,7 +26,7 @@ const Signup = () => {
       console.error("Error signin up", error);
     }
 
-   
+    reset()
   }
 
   return (

@@ -19,9 +19,9 @@ const Main = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/auth" element={< Authentication/>} />
         <Route path="/event/:id" element={<Details />} />
-        <Route path="/create/:email" element={<Create />} />
-        <Route path="/event/:title/:email" element={<MyEvents />} />
-        <Route path="/update/:title/:email" element={<Update />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/myevents" element={<MyEvents />} />
+        <Route path="/update" element={<Update />} />
         <Route path="/*" element={<Navigate to={"/"} />} /> 
       </Routes>
     </main>

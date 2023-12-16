@@ -25,20 +25,11 @@ const login = async (req, res) => {
                 };
                 const token = jwt.sign(userForToken, process.env.CLIENT_SECRET, { expiresIn: '60m' });
 
-                //Almacenamos el token en las cookies
-                res.cookie("access-token", token, {
-                    httpOnly: true,
-                    sameSite: "strict",
+                res.status(200).json({
+                    accesToken: token,
+                    loggedEmail:req.body.email,
+                    username:user[0].username
                 })
-                res.cookie("logged-email", req.body.email, {
-                    httpOnly: true,
-                    sameSite: "strict",
-                })
-                res.cookie("username", user[0].username, {
-                    httpOnly: true,
-                    sameSite: "strict",
-                })
-                res.status(200)
             } else {
                 res.status(400).json({ msg: 'Incorrect user or password' });
             }
