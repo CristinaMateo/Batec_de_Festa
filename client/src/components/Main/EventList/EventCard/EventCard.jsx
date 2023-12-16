@@ -9,8 +9,10 @@ const EventCard = ({events}) => {
     <article className="card" key={events.event_id}>
       <h3>{events.title}</h3>
       <p>Ciudad: {events.city}</p>
-      <p>Fecha:{events.event_date}</p>
-      <p>Hora:{events.event_time}</p>
+      <p>Fecha: {events.event_date}</p>
+      <p>Hora: {events.event_time}</p>
+      <p>Lugar: {events.address}</p>
+      <p>Descripción: {events.description}</p>
     </article>
   );
 };
