@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import Loader from "../Loader";
@@ -8,24 +8,22 @@ const Details = () => {
 
   const { id } = useParams();
   const [eventDet, setEventDet] = useState();
-  const [searchParams] = useSearchParams();
-
   const [isLoading, setIsLoading] = useState(false)
 
 
   useEffect(() => {
 
-    setIsLoading(true)
     //Función detalles del envento!
     const fetchEventsDet = async () => {
+      setIsLoading(true)
       try {
         const respuesta = await axios.get(`http://localhost:3000/api/events/${id}`);
-        const datos = await respuesta.json()
-        console.log(respuesta);
+        const datos = await respuesta.data
 
         const detailedData = {
           id: datos.event_id,
           title: datos.title,
+          img: datos.image,
           city: datos.city,
           time: datos.event_time,
           date: datos.event_date,
@@ -35,19 +33,11 @@ const Details = () => {
 
 
         setEventDet(detailedData);
-        console.log(eventDet);
 
       } catch (error) {
-        setEventDet({
-          id: id,
-          title: searchParams.get('title'),
-          city: searchParams.get('city'),
-          time: searchParams.get('event_time'),
-          date: searchParams.get('event_date'),
-          address: searchParams.get('address'),
-          description: searchParams.get('description')
-        })
+       console.log("Lo sentimos, no hemos podido acceder a los detalles")
       }
+      setIsLoading(false)
     }
 
     fetchEventsDet();
@@ -56,19 +46,19 @@ const Details = () => {
 
   return (
     <section>
-      {isLoading && !eventDet && <Loader />}
+      {isLoading && <Loader />}
+      {!isLoading && eventDet &&
+        <article id="eventDet">
 
-      <article id="eventDet">
+          <h3>{eventDet.title}</h3>
+          <img className="eventDetImg" src={eventDet.img} alt="imagen del evento"/>
+          <h4>{eventDet.city}</h4>
+          <p>Location: {eventDet.address}</p>
+          <p>{eventDet.date.slice(0, 10)}</p>
+          <p>{eventDet.time}</p>
+          <p>{eventDet.description}</p>
 
-        <h3>{eventDet.title}</h3>
-        Poner una imagen por defecto
-        <h4>{eventDet.city}</h4>
-        <p>Location: {eventDet.address}</p>
-        <p>{eventDet.date}</p>
-        <p>{eventDet.time}</p>
-        <p>{eventDet.description}</p>
-
-      </article>
+        </article>}
 
     </section>
 
