@@ -1,17 +1,19 @@
 const usersModel = require('../models/users.model');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
+const regex = require('../utils/regex')
 
 
-const getUser = async (req, res) => {
+const login = async (req, res) => {
     const { email, password } = req.body
-    console.log(req.body)
+
     if (!email || !password) {
         res.status(400).send("Please provide an email or password to log in!")
     } else {
+
         let user = await usersModel.getUsersByEmail(email);//esto accede a user.models y llama a esa funcion allí
 
-        if (user.length == 0) {
+        if (user.length === 0) {
             res.status(400).json({ msg: 'Incorrect user or password' });
         } else {
             const hashPassword = user[0].password
@@ -36,7 +38,7 @@ const getUser = async (req, res) => {
                     httpOnly: true,
                     sameSite: "strict",
                 })
-
+                res.status(200)
             } else {
                 res.status(400).json({ msg: 'Incorrect user or password' });
             }
@@ -49,14 +51,20 @@ const getUser = async (req, res) => {
 // Create User
 const createUser = async (req, res) => {
     const newUser = req.body;
-    if (newUser.password === newUser.password2) {
+    if (newUser.password === newUser.pass2) {
         try {
-            await usersModel.createUser(newUser);
-
-            res.status(201).json({
-                msg: "User created :)"
-            })
-        } catch(error){
+            if (regex.validateEmail(newUser.email) && regex.validatePassword(newUser.password)) {
+                await usersModel.createUser(newUser);
+                res.status(201).json({
+                    msg: "User created :)"
+                })
+            } else {
+                res.status(400).json({
+                    msg: "Invalid email or password"
+                })
+            }
+        } catch (error) {
+            console.log(error)
             res.status(400).json({
                 msg: "email already in use"
             })
@@ -69,6 +77,6 @@ const createUser = async (req, res) => {
 }
 
 module.exports = {
-    getUser,
+    login,
     createUser
 }

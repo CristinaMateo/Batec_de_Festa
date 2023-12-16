@@ -4,7 +4,7 @@ const usersSqlRouter = express.Router();
 
 usersSqlRouter.post("/addUser", usersSqlController.createUser)
 
-usersSqlRouter.post("/login", usersSqlController.getUser)
+usersSqlRouter.post("/login", usersSqlController.login)
 
 
 module.exports = usersSqlRouter;
