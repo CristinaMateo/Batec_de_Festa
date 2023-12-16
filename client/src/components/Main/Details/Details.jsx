@@ -1,62 +1,73 @@
 import React from "react";
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import axios from 'axios'
 import Loader from "../Loader";
 
 const Details = () => {
 
   const { id } = useParams();
   const [eventDet, setEventDet] = useState();
+  const [searchParams] = useSearchParams();
+
   const [isLoading, setIsLoading] = useState(false)
 
 
   useEffect(() => {
+
     setIsLoading(true)
     //Función detalles del envento!
-
-    /* const fetchPokeDet = async () => {
+    const fetchEventsDet = async () => {
       try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        const data = await response.json();
+        const respuesta = await axios.get(`http://localhost:3000/api/events/${id}`);
+        const datos = await respuesta.json()
+        console.log(respuesta);
 
-        setPokemonDet({
-          id: data.id,
-          name: data.name,
-          image: data.sprites.other.home.front_default,
-          typeOne: data.types[0].type.name,
-          typeTwo: data.types[1]?.type.name,
-          ...data
-        })
+        const detailedData = {
+          id: datos.event_id,
+          title: datos.title,
+          city: datos.city,
+          time: datos.event_time,
+          date: datos.event_date,
+          address: datos.address,
+          description: datos.description
+        }
+
+
+        setEventDet(detailedData);
+        console.log(eventDet);
+
       } catch (error) {
-        setPokemonDet({
+        setEventDet({
           id: id,
-          name: searchParams.get('name'),
-          image: searchParams.get('image'),
-          typeOne: searchParams.get('typeOne'),
-          typeTwo: searchParams.get('typeTwo')
+          title: searchParams.get('title'),
+          city: searchParams.get('city'),
+          time: searchParams.get('event_time'),
+          date: searchParams.get('event_date'),
+          address: searchParams.get('address'),
+          description: searchParams.get('description')
         })
-
       }
-
     }
-    fetchPokeDet(); */
+
+    fetchEventsDet();
+
   }, []);
 
-
   return (
-
     <section>
-      {isLoading && !eventDet && <Loader/>}
+      {isLoading && !eventDet && <Loader />}
 
-      <article>
-        Mostrar aquí detalles del evento:
-        Título:
-        Ciudad:
-        Imagen:
-        Dirección:
-        Fecha:
-        Hora:
-        Descripción
+      <article id="eventDet">
+
+        <h3>{eventDet.title}</h3>
+        Poner una imagen por defecto
+        <h4>{eventDet.city}</h4>
+        <p>Location: {eventDet.address}</p>
+        <p>{eventDet.date}</p>
+        <p>{eventDet.time}</p>
+        <p>{eventDet.description}</p>
+
       </article>
 
     </section>

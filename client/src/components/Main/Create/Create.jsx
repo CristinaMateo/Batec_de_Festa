@@ -1,10 +1,9 @@
 import React  from "react";
 import { useForm } from "react-hook-form";
-import Event from "../../Object/Event";
+import axios from 'axios'
 
 const Create = () => {
 
-  // const {createEvent} = //guardar en bbdd
 
   const {
     register,
@@ -14,16 +13,21 @@ const Create = () => {
   } = useForm()
 
   const onSubmit = (data) => {
-    createEvent(new Event(
-      data.title,
-      data.image,
-      data.city,
-      data.location,
-      data.description,
-      data.event_time,
-      data.event_date
-    ))
+    const Event ={
+      title:data.title,
+      image:data.image,
+      city:data.city,
+      location:data.location,
+      description:data.description,
+      event_time:data.event_time,
+      event_date:data.event_date
+    }
  
+    try{
+      axios.post(`http://localhost:3000/api/myevents/${email}`, Event)
+    }catch (error) {
+      console.error("Error creating event", error);
+    }
     reset()
   }
 

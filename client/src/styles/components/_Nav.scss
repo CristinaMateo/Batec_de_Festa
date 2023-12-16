@@ -1,12 +1,28 @@
 @import '../utils/variables.scss';
-.nav-bar{
-    list-style: none;
 
-    & li> a{
+nav {
+    display: flex;
+    justify-content: center;
+    line-height: 20%;
+}
+
+nav>a {
+    color: $magnolia;
+    padding: 0.7em 1.1em;
+    text-decoration: none;
+    text-align: center;
+
+    &:active {
         color: $orange;
+    }
+
+    &:hover {
+        background-color: $lightgr ;
     }
 }
 
-li:hover{
-    background-color: $lightgr;
+@media screen and (max-width: 800px) {
+    nav{   
+        flex-direction: column;
+      }
 }

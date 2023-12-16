@@ -18,6 +18,21 @@ const getAllEvents= async () => {
     return result
 }
 
+const getOneEvent= async (id) => {
+    let client, result;
+    try {
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(queries.getOneEvent, [id])
+        result = data.rows  
+    } catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release();
+    }
+    return result
+}
+
 
 //GET
 const getMyEvents = async (email) => {
@@ -25,7 +40,7 @@ const getMyEvents = async (email) => {
     try {
         client = await pool.connect(); // Espera a abrir conexion a bbdd
         const data = await client.query(queries.getMyEvents, [email])
-        result = data.rows
+        result = data.rows[0]
     } catch (err) {
         console.log(err);
         throw err;
@@ -91,6 +106,7 @@ const deleteEvent = async (eventinfo) => {
 const events = {
     getAllEvents,
     getMyEvents,
+    getOneEvent,
     createEvent,
     updateEvent,
     deleteEvent
