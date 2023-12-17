@@ -1,3 +1,13 @@
+@import '../utils/variables.scss';
+
 .eventImg{
     width: 30%;
+}
+
+.card{
+    padding: 10px !important;
+    border: $lightgr solid 2px;
+    height: fit-content;
+    width: 70%;
+    margin: 50px auto;
 }
