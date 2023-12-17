@@ -10,7 +10,7 @@ const Header = () => {
   <header>
     {loggedUser && <Logout/>}
     <Nav/>
-    <h1>Party Pulse</h1>
+    <h1>Batec de festa</h1>
   </header>);
 };
 

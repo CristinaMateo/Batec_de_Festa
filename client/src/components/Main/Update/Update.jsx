@@ -37,42 +37,39 @@ const Update = () => {
   
 
   return (
+    <>
+    <h2>Edita l'esdeveniment</h2>
     <form className="new" onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="oldtitle">Event title:</label>
+      <label htmlFor="oldtitle">Títol actual de l'esdeveniment:</label>
       <input type="text" {...register("oldtitle", { required: true, minLength: 3 })} />
-      {errors.oldtitle && <span>Title needs to have at least 3 characters. Required</span>}
+      {errors.oldtitle && <span>El títol ha de tenir un mínim de tres caracters. Obligatori</span>}
 
-      <label htmlFor="title">Want to change your event title? (optional)</label>
+      <label htmlFor="title">Vols canviar el títol? (opcional)</label>
       <input type="text" {...register("title", { required: false, minLength: 3 })} />
-      {errors.title && <span>Title needs to have at least 3 characters.¡</span>}
+      {errors.title && <span>El títol ha de tenir un mínim de tres caracters.</span>}
 
-      <label htmlFor="image">Add an image:</label>
-      <input type="text" {...register("image", { required: true })} />
-      {errors.image && <span>Required</span>}
+      <label htmlFor="image">Afageix imatge: (opcional)</label>
+      <input type="text" {...register("image", { required: false })} />
 
-      <label htmlFor="city">City:</label>
-      <input type="text" {...register("city", { required: true})} />
-      {errors.city && <span>Required</span>}
+      <label htmlFor="city">Ciutat: (opcional)</label>
+      <input type="text" {...register("city", { required: false})} />
 
-      <label htmlFor="location">Address:</label>
-      <input type="text" {...register("location", { required: true})} />
-      {errors.location && <span>Required</span>}
+      <label htmlFor="location">Adreça: (opcional)</label>
+      <input type="text" {...register("location", { required: false})} />
 
-      <label htmlFor="description">Description:</label>
-      <input type="text" {...register("description", { required: true})} />
-      {errors.description && <span>Required</span>}
+      <label htmlFor="description">Descripció: (opcional)</label>
+      <input type="text" {...register("description", { required: false})} />
 
-      <label htmlFor="event_time">Time:</label>
-      <input type="time" {...register("event_time", { required: true})} />
-      {errors.event_time && <span>Required</span>}
+      <label htmlFor="event_time">Hora: (opcional)</label>
+      <input type="time" {...register("event_time", { required: false})} />
 
-      <label htmlFor="event_date">Date:</label>
-      <input type="date" {...register("event_date", { required: true})} />
-      {errors.event_date && <span>Required</span>}
+      <label htmlFor="event_date">Data: (opcional)</label>
+      <input type="date" {...register("event_date", { required: false})} />
 
       
-      <button >Update</button>
+      <button >Edita</button>
     </form>
+    </>
   );
 };
 

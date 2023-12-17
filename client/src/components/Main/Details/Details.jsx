@@ -50,13 +50,14 @@ const Details = () => {
       {!isLoading && eventDet &&
         <article id="eventDet">
 
+          <h2>Detalls de l'esdeveniment</h2>
+
           <h3>{eventDet.title}</h3>
-          <img className="eventDetImg" src={eventDet.img} alt="imagen del evento"/>
           <h4>{eventDet.city}</h4>
-          <p>Location: {eventDet.address}</p>
-          <p>{eventDet.date.slice(0, 10)}</p>
-          <p>{eventDet.time}</p>
+          <p>On? <br />{eventDet.address}</p>
+          <p> Quan? <br />{eventDet.date.slice(0, 10)} , {eventDet.time}</p>
           <p>{eventDet.description}</p>
+          <img className="eventDetImg" src={eventDet.img} alt="imagen del evento"/>
 
         </article>}
 
