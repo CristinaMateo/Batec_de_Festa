@@ -1,7 +1,7 @@
 const queries = {
     getEvents:`SELECT title, city, image, event_time, event_date, event_id,address,description
     FROM events;`,
-    getMyEvents:`SELECT title, image, city, address, description, event_time, event_date
+    getMyEvents:`SELECT title, e.image, city, address, description, event_time, event_date
     FROM events AS e
     INNER JOIN users AS u
     ON e.user_id=u.user_id
@@ -9,9 +9,9 @@ const queries = {
     getOneEvent:`SELECT title, city, image, event_time, event_date, event_id, address, description
     FROM events
     WHERE event_id=$1;`,
-    createEvent:`INSERT INTO events(title, city, address, description, event_time, event_date, user_id)
-    VALUES ($1, $2, $3, $4, $5, $6,
-    SELECT user_id FROM users WHERE email=$7));`,
+    createEvent:`INSERT INTO events(title, image, city, address, description, event_time, event_date, user_id)
+    VALUES ($1, $2, $3, $4, $5, $6, $7,
+    (SELECT user_id FROM users WHERE email=$8));`,
     updateEvent:`UPDATE events AS e
     SET title = $1,
         city = $2,

@@ -2,14 +2,15 @@ import React from "react";
 
 const Logout = () => {
 
-const logout = () =>{
-  sessionStorage.removeItem('auth')
-  location.reload()
-}
+  const logout = () => {
+    sessionStorage.removeItem('auth')
+    sessionStorage.removeItem('email')
+    location.reload()
+  }
 
   return (
     <div className="logout">
-    <button onClick={logout}>Sortir</button>
+      <button onClick={logout}>Sortir</button>
     </div>
   )
 };

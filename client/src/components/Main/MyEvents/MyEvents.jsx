@@ -1,8 +1,11 @@
 import React from "react";
+import axios from 'axios'
 import { useEffect, useState } from "react";
-import EventList from '../EventList'
 import { Navigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import EventList from '../EventList'
 import { whoIsLogged } from "../Authentication/utils";
+import Loader from '../Loader'
 
 const MyEvents = () => {
 
@@ -11,28 +14,39 @@ const MyEvents = () => {
     console.log("User not logged")
     return <Navigate to="/auth" />
   }
-  useEffect(() => {
-    const fetchAllEvents = async () => {
-      try {
-        
 
+  const [myEvents, setMyEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(false)
+
+  const email = sessionStorage.getItem("email")
+
+  useEffect(() => {
+    const fetchMyEvents = async () => {
+      try {
+        setIsLoading(true)
+        const response = await axios.get(`http://localhost:3000/api/myevents/${email}`);
+        console.log(response);
+        const eventData = await response.data;
+        setMyEvents(eventData);
+        setIsLoading(false)
       } catch (error) {
-        console.error("Error fetching Pokemon details:", error);
+        console.error("Error fetching event details:", error);
       }
     };
 
-    fetchAllEvents();
+    fetchMyEvents();
   }, []);
-
-
-
 
   return (
     <>
       <section id="myevents">
-        Mostrar esdeveniments de l'usuari
+        {isLoading && <Loader />}
         <article className="event-container">
-          <EventList  />
+          {!isLoading && myEvents &&
+            <>
+              <EventList eventList={myEvents} />
+              <Link className={'link'} to='/update'>Edita un esdeveniment</Link>
+            </>}
         </article>
       </section>
     </>

@@ -19,6 +19,7 @@ const Login = () => {
     try {
       const response = await axios.post(`http://localhost:3000/login`, User)
       sessionStorage.setItem('auth', JSON.stringify(response.data));
+      sessionStorage.setItem('email', JSON.stringify(response.data.loggedEmail))
     } catch (error) {
       console.error("Error on log in", error);
     }
