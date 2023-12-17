@@ -31,30 +31,30 @@ const Signup = () => {
 
   return (
     <section id="sign">
-      <h2>Sign up</h2>
+      <h2>Registra't</h2>
       <form className="new" onSubmit={handleSubmit(onSubmit)}>
 
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Correu:</label>
         <input type="email" {...register("email", { required: true })} />
-        {errors.email && <span>Required</span>}
+        {errors.email && <span>Obligatori</span>}
 
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">Nom d'usuari:</label>
         <input type="text" {...register("username", { required: true })} />
-        {errors.username && <span>Required</span>}
+        {errors.username && <span>Obligatori</span>}
 
-        <label htmlFor="image">Image:</label>
+        <label htmlFor="image">Imatge:</label>
         <input type="text" {...register("image", { required: true })} />
-        {errors.image && <span>Required</span>}
+        {errors.image && <span>Obligatori</span>}
 
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Contrassenya:</label>
         <input type="password" {...register("password", { required: true })} />
-        {errors.password && <span>Required</span>}
+        {errors.password && <span>Obligatori</span>}
 
-        <label htmlFor="pass2">Confirm password:</label>
+        <label htmlFor="pass2">Confirma la contrassenya:</label>
         <input type="password" {...register("pass2", { required: true })} />
-        {errors.pass2 && <span>Required</span>}
+        {errors.pass2 && <span>Obligatori</span>}
 
-        <button >Sign up</button>
+        <button >Fet</button>
 
       </form>
     </section>

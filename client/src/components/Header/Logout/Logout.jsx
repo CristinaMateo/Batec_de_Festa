@@ -9,7 +9,7 @@ const logout = () =>{
 
   return (
     <div className="logout">
-    <button onClick={logout}>Log out</button>
+    <button onClick={logout}>Sortir</button>
     </div>
   )
 };

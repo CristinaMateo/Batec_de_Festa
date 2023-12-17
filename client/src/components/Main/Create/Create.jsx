@@ -39,36 +39,36 @@ const Create = () => {
 
   return (
     <form className="new" onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="title">Event title:</label>
+      <label htmlFor="title">Títol de l'esdeveniment:</label>
       <input type="text" {...register("title", { required: true, minLength: 3 })} />
-      {errors.title && <span>Title needs to have at least 3 characters. Required</span>}
+      {errors.title && <span>El títol ha de tenir un mínim de tres caracters. Obligatori</span>}
 
-      <label htmlFor="image">Add an image:</label>
+      <label htmlFor="image">Afageix imatge:</label>
       <input type="text" {...register("image", { required: true })} />
-      {errors.image && <span>Required</span>}
+      {errors.image && <span>Obligatori</span>}
 
-      <label htmlFor="city">City:</label>
+      <label htmlFor="city">Ciutat:</label>
       <input type="text" {...register("city", { required: true })} />
-      {errors.city && <span>Required</span>}
+      {errors.city && <span>Obligatori</span>}
 
-      <label htmlFor="location">Address:</label>
+      <label htmlFor="location">Adreça:</label>
       <input type="text" {...register("location", { required: true })} />
-      {errors.location && <span>Required</span>}
+      {errors.location && <span>Obligatori</span>}
 
-      <label htmlFor="description">Description:</label>
+      <label htmlFor="description">Descripció:</label>
       <input type="text" {...register("description", { required: true })} />
-      {errors.description && <span>Required</span>}
+      {errors.description && <span>Obligatori</span>}
 
-      <label htmlFor="event_time">Time:</label>
+      <label htmlFor="event_time">Hora:</label>
       <input type="time" {...register("event_time", { required: true })} />
-      {errors.event_time && <span>Required</span>}
+      {errors.event_time && <span>Obligatori</span>}
 
-      <label htmlFor="event_date">Date:</label>
+      <label htmlFor="event_date">Data:</label>
       <input type="date" {...register("event_date", { required: true })} />
-      {errors.event_date && <span>Required</span>}
+      {errors.event_date && <span>Obligatori</span>}
 
 
-      <button >Create</button>
+      <button >Crear</button>
     </form>
   );
 };

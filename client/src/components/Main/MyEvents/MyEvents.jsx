@@ -30,7 +30,7 @@ const MyEvents = () => {
   return (
     <>
       <section id="myevents">
-        Mostrar eventos del usuario, coger por mail
+        Mostrar esdeveniments de l'usuari
         <article className="event-container">
           <EventList  />
         </article>

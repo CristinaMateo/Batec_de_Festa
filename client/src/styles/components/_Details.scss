@@ -1,3 +1,13 @@
+@import '../utils/variables.scss';
+
 .eventDetImg{
     width: 50%;
+}
+
+#eventDet{
+    margin-bottom: 50px;
+    border: 1px dashed $lightgr;
+    width: 70%;
+    margin: 50px auto;
+    padding-bottom: 20px;
 }

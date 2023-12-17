@@ -29,19 +29,19 @@ const Login = () => {
 
   return (
     <section>
-      <h2>Log in</h2>
+      <h2>Iniciar sessió</h2>
       <form className="new" onSubmit={handleSubmit(onSubmit)}>
 
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Correu:</label>
         <input type="email" {...register("email", { required: true })} />
-        {errors.email && <span>Required</span>}
+        {errors.email && <span>Obligatori</span>}
 
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Contrassenya:</label>
         <input type="password" {...register("password", { required: true })} />
-        {errors.password && <span>Required</span>}
+        {errors.password && <span>Obligatori</span>}
 
 
-        <button >Log in</button>
+        <button >Entra</button>
 
       </form>
     </section>
