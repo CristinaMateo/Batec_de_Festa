@@ -24,6 +24,7 @@ const Login = () => {
     }
 
     reset()
+    location.reload()
   }
 
   return (

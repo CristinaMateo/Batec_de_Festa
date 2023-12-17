@@ -14,6 +14,7 @@ const Nav = () => {
         <>
           <Link className={'link'} to='/create'>Create Event</Link>
           <Link className={'link'} to='/myevents'>My Events</Link>
+          
         </>}
     </nav >
   )

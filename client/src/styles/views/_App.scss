@@ -8,6 +8,8 @@
     background-color: $darkgr;
     font-size: 25px;
     color: $magnolia;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {
@@ -17,4 +19,8 @@
 
 body {
     display: block !important;
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
 }
