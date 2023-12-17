@@ -13,14 +13,38 @@ nav>a {
     text-align: center;
 
     &:active {
-        color: $orange;
+        color: $purple;
     }
 
     &:hover {
         background-color: $lightgr ;
-        color:$magnolia;
+        
     }
 }
+a:hover {
+    color: $orange;
+  }
+
+  button:hover {
+    border-color: $orange;
+    color: $purple;
+  }
+  button:active{
+    background-color: #e6d6ef;
+  }
+
+  button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.3em 0.3em;
+    font-size: 0.8em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color:$magnolia;
+    color: $darkgr;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
 
 @media screen and (max-width: 800px) {
     nav{   

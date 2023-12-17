@@ -21,9 +21,9 @@ app.use(cors({origin:'*'}))
 
 
 //Inicializamos passport y la session de passport
-/* app.use(session({ secret: 'SECRET' }));
+ app.use(session({ secret: 'SECRET' }));
 app.use(passport.initialize());
-app.use(passport.session()); */
+app.use(passport.session()); 
 
 //middelwares
 const error404 = require('./middlewares/error404')
@@ -31,7 +31,7 @@ const morgan = require('./middlewares/morgan')
 
 
 // Logger
-app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
+app.use(morgan(':method :host :status :param[id] - :response-time ms'));
 
 //rutas
 const apiroutes = require("./routes/api.routes")

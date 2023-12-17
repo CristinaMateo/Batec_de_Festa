@@ -1,10 +1,10 @@
 --Crear tabla usuarios
 CREATE TABLE users (
   user_id serial NOT NULL PRIMARY KEY, 
-  username varchar(45) NOT NULL, 
-  email varchar(45) NOT NULL UNIQUE, 
-  image varchar(45) NOT NULL,
-  password varchar(45) NOT NULL
+  username text NOT NULL, 
+  email text NOT NULL UNIQUE, 
+  image text NOT NULL,
+  password text NOT NULL
 );
 
 

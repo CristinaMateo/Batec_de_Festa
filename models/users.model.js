@@ -8,17 +8,13 @@ const saltRounds = 10;
 
 
 const createUser = async (infouser) => {
-    const { email, username, password, password2, image } = infouser;
+    const { email, username, password, image } = infouser;
     const hashPassword = await bcrypt.hash(password, saltRounds)
     let client, result;
     try {
-        if (regex.validateEmail(email) && regex.validatePassword(password)) {
-            client = await pool.connect(); // Espera a abrir conexion
-            const data = await client.query(queries.createUser, [username, email, image, hashPassword])
-            result = data.rowCount  
-        } else {
-            console.warn("Invalid email or password")
-        }
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(queries.createUser, [username, email, image, hashPassword])
+        result = data.rowCount
     } catch (err) {
         console.log(err);
         throw err;
