@@ -70,11 +70,11 @@ const createEvent = async (eventinfo) => {
 
 //UPDATE
 const updateEvent = async (eventinfo) => {
-    const { title, city, address, description, event_time, event_date, oldiTtle, email} = eventinfo;
+    const { title, image, city, address, description, event_time, event_date, oldTitle, email} = eventinfo;
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.updateEvent,[title, city, address, description, event_time, event_date, oldTitle, email])
+        const data = await client.query(queries.updateEvent,[title, image, city, address, description, event_time, event_date, oldTitle, email])
         result = data.rowCount
     } catch (err) {
         console.log(err);
@@ -87,11 +87,11 @@ const updateEvent = async (eventinfo) => {
 
 //DELETE
 const deleteEvent = async (eventinfo) => {
-    const { title, email} = eventinfo;
+    const {id, email} = eventinfo;
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.deleteEvent,[title, email])
+        const data = await client.query(queries.deleteThisEvent,[id, email])
         result = data.rowCount
     } catch (err) {
         console.log(err);

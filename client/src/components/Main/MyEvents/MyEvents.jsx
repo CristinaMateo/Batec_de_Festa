@@ -44,8 +44,8 @@ const MyEvents = () => {
         <article className="event-container">
           {!isLoading && myEvents &&
             <>
+              <Link className={'update-link'} to='/update'>Punxa aquí per editar un esdeveniment</Link>
               <EventList eventList={myEvents} />
-              <Link className={'link'} to='/update'>Edita un esdeveniment</Link>
             </>}
         </article>
       </section>
