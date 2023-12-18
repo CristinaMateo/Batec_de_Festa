@@ -26,8 +26,9 @@ const getOneEvent = async (req, res) => {
 
 const getMyEvents = async (req, res) => {
     let events;
+    let email = req.params.email.replace(/^"(.*)"$/, '$1')
     try {
-        events = await api.getMyEvents(req.query.email)
+        events = await api.getMyEvents(email)
         res.status(200).json(events);
     } catch (error) {
         res.status(400).json({
@@ -38,7 +39,9 @@ const getMyEvents = async (req, res) => {
 
 const createEvent = async (req, res) => {
     try {
+        const email = req.params.email.replace(/^"(.*)"$/, '$1')
         const newEvent = req.body; // {title,content,email,category}
+        newEvent.email = email;
         const response = await api.createEvent(newEvent);//esto accede a entries.models y llama a esa funcion allí
         res.status(201).json({
             "items_created": response,
@@ -57,18 +60,31 @@ const updateEvents = async (req, res) => {
         const updatedEvent = req.body; 
         const response = await api.updateEvent(updatedEvent);//esto accede a models y llama a esa funcion allí
         res.status(201).json({
-            "items_created": response,
+            "items_updated": response,
             data: updatedEvent
         });
     } catch (error) {
         res.status(400).json({
-            msg: "Error creating event"
+            msg: "Error updating event"
         })
     }
 }
 
-const deleteEvents = async (req, res) => {
-
+const deleteEvent = async (req, res) => {
+    try {
+        const deletedEvent = {
+            id: req.params.id,
+            email: req.params.email};
+        const response = await api.deleteEvent(deletedEvent);//esto accede a models y llama a esa funcion allí
+        res.status(201).json({
+            "item_deleted": response,
+            data: deletedEvent
+        });
+    } catch (error) {
+        res.status(400).json({
+            msg: "Error deleting event"
+        })
+    }
 }
 
 module.exports = {
@@ -77,5 +93,5 @@ module.exports = {
     getOneEvent,
     createEvent,
     updateEvents,
-    deleteEvents
+    deleteEvent
 }
