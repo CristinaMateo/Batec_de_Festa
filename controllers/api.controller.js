@@ -24,6 +24,19 @@ const getOneEvent = async (req, res) => {
     }
 }
 
+const getCities = async (req, res) => {
+    let cities;
+    try {
+        cities = await api.getCities();//esto accede a models y llama a esa funcion allí
+        res.status(200).json(cities); // [] con las entries encontradas
+    } catch (error) {
+        res.status(400).json({
+            msg: "Error getting events"
+        })
+    }
+}
+
+
 const getMyEvents = async (req, res) => {
     let events;
     let email = req.params.email.replace(/^"(.*)"$/, '$1')
@@ -91,6 +104,7 @@ module.exports = {
     getAllEvents,
     getMyEvents,
     getOneEvent,
+    getCities,
     createEvent,
     updateEvents,
     deleteEvent
