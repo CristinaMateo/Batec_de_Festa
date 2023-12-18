@@ -13,3 +13,37 @@ Se trata de una página web de organización de eventos. De primeras se puede vi
 This project is a FullStack project, so it contains on the one hand a BackEnd server, developed with express and node.js, and on the other hand a FrontEnd developed with React.js. The database to which it connects is relational and is hosted on an external server in ElephantSQL.
 
 It is an event organization website. First you can visit the list of events, which in this first phase are all public, and their details. In addition, you can create a user account to create events, edit your own events and delete them.
+
+
+Página de inicio/Home page:
+![incio](./client/public/capturasReadme/inicio.png) 
+
+
+Página de registro/ Login & Sign up page:
+
+![registro](./client/public/capturasReadme/registro.png) 
+
+
+Página de inicio del usuario/ User-Home page:
+
+![iniciouser](./client/public/capturasReadme/iniciouser.png) 
+
+
+Crear evento/ Create Event:
+
+![creare evento](./client/public/capturasReadme/crear.png) 
+
+
+Editar evento/ Update event:
+
+![editar evento](./client/public/capturasReadme/editar.png) 
+
+
+Vista detalle/ Event detail:
+
+![detalle](./client/public/capturasReadme/detalle.png) 
+
+
+Página de eventos propios/ My events page:
+
+![mis eventos](./client/public/capturasReadme/myevents.png) 
