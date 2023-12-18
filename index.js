@@ -43,8 +43,6 @@ app.use('/api', apiroutes);
 app.use('/',usersRoutes);
 //app.use('/', authRoutes)
 
-//para rutas no existentes
-app.use('*',error404)
 
 //* Serve static assets in production, must be at this location of this file
 if (process.env.NODE_ENV === 'production') {
@@ -54,6 +52,8 @@ if (process.env.NODE_ENV === 'production') {
     app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'dist','index.html')));
   }
 
+//para rutas no existentes
+app.use('*',error404)
 
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`)
