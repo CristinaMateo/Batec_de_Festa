@@ -20,7 +20,7 @@ const Signup = () => {
     }
 
     try {
-      axios.post(`http://localhost:3000/addUser`, User)
+      axios.post(`/addUser`, User)
     } catch (error) {
       console.error("Error signin up", error);
     }

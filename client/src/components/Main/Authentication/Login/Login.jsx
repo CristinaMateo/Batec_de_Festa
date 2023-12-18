@@ -19,7 +19,7 @@ const Login = () => {
       password: data.password
     }
     try {
-      const response = await axios.post(`http://localhost:3000/login`, User)
+      const response = await axios.post(`/login`, User)
       sessionStorage.setItem('auth', JSON.stringify(response.data));
       sessionStorage.setItem('email', JSON.stringify(response.data.loggedEmail))
       sessionStorage.setItem('username', JSON.stringify(response.data.username))

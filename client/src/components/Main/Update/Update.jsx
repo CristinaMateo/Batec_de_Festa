@@ -35,7 +35,7 @@ const Update = () => {
       email: email.replace(/^"(.*)"$/, '$1')
     }
     try{
-      await axios.put(`http://localhost:3000/api/myevents`, Event)
+      await axios.put(`/api/myevents`, Event)
       
     }catch (error) {
       console.error("Error updating event", error);

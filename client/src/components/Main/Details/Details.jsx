@@ -23,7 +23,7 @@ const Details = () => {
     const fetchEventsDet = async () => {
       setIsLoading(true)
       try {
-        const respuesta = await axios.get(`http://localhost:3000/api/events/${id}`);
+        const respuesta = await axios.get(`/api/events/${id}`);
         const datos = await respuesta.data
 
         const detailedData = {
@@ -53,7 +53,7 @@ const Details = () => {
 
   const deleteEvent = async (e) => {
     e.preventDefault()
-    await axios.delete(`http://localhost:3000/api/myevents/${id}/${loggedemail}`)
+    await axios.delete(`/api/myevents/${id}/${loggedemail}`)
     navigate('/myevents')
   }
 

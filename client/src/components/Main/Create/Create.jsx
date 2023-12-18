@@ -33,7 +33,7 @@ const Create = () => {
 
     try {
       
-      axios.post(`http://localhost:3000/api/myevents/${email}`, Event)
+      axios.post(`/api/myevents/${email}`, Event)
     } catch (error) {
       console.error("Error creating event", error);
     }
