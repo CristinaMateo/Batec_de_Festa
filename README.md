@@ -1,5 +1,7 @@
 # Batec de festa
 
+https://partypulse-ynvm.onrender.com/
+
 (ES) Este proyecto es el último dentro del marco de la formación troncal en el bootcamp Desarrollo Web Full Stack en The Bridge. Representa la unión de todo lo aprendido en los últimos meses y una evolución en el aprendizaje. La interfaz de usuario está en catalán con la intención de dar visibilidad a esta lengua por ser minoritaria y una de mis lenguas vehiculares.
 
 Este proyecto es un proyecto FullStack, por lo que contiene por un lado un BackEnd que hace de servidor, desarrollado con express y node.js, y por otro lado un FrontEnd desarrollado con React.js. La base de datos a la que se conecta es relacional y está alojada en un servidor externo en ElephantSQL. 
