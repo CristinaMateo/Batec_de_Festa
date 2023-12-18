@@ -5,8 +5,8 @@ require("dotenv").config();
 const path = require('path');
 const cors = require('cors')
 //const helmet = require("helmet")
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+//const swaggerUi = require('swagger-ui-express');
+//const swaggerDocument = require('./swagger.json');
 
 const passport = require("passport");
 const session = require("express-session");
@@ -21,7 +21,7 @@ app.use(cors({origin:'http://localhost:5173'}))
 //app.use(helmet());
 
 //uso de swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //Inicializamos passport y la session de passport
  app.use(session({ secret: 'SECRET' }));
