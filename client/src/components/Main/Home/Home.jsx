@@ -15,7 +15,7 @@ const Home = () => {
   const fetchAllEvents = async () => {
     try {
       setIsLoading(true)
-      const response = await axios.get('http://localhost:3000/api/events');
+      const response = await axios.get('/api/events');
       const eventData = response.data;
       setAllEvents(eventData);
       setfilteredEvents(eventData)
@@ -27,7 +27,7 @@ const Home = () => {
 
   const fetchCities = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/cities')
+      const response = await axios.get('/api/cities')
       const cityData = await response.data.map(obj => obj.city);
       setCities(cityData)
     } catch (error) {
