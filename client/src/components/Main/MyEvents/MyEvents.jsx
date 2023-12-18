@@ -24,7 +24,7 @@ const MyEvents = () => {
     const fetchMyEvents = async () => {
       try {
         setIsLoading(true)
-        const response = await axios.get(`http://localhost:3000/api/myevents/${email}`);
+        const response = await axios.get(`/api/myevents/${email}`);
         console.log(response);
         const eventData = await response.data;
         setMyEvents(eventData);
