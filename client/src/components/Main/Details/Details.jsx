@@ -15,7 +15,7 @@ const Details = () => {
   const [eventDet, setEventDet] = useState();
   const [isLoading, setIsLoading] = useState(false)
 
-  const loggedemail = sessionStorage.getItem("email").replace(/^"(.*)"$/, '$1')
+  const loggedemail = sessionStorage.getItem("email")?.replace(/^"(.*)"$/, '$1')
 
   useEffect(() => {
 

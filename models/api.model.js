@@ -50,6 +50,23 @@ const getMyEvents = async (email) => {
     return result
 }
 
+
+//GET
+const getCities = async () => {
+    let client, result;
+    try {
+        client = await pool.connect(); // Espera a abrir conexion a bbdd
+        const data = await client.query(queries.getCities)
+        result = data.rows
+    } catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release();
+    }
+    return result
+}
+
 //// CREATE
 const createEvent = async (eventinfo) => {
     const { title, image, city, address, description, event_time, event_date, email} = eventinfo;
@@ -107,6 +124,7 @@ const events = {
     getAllEvents,
     getMyEvents,
     getOneEvent,
+    getCities,
     createEvent,
     updateEvent,
     deleteEvent

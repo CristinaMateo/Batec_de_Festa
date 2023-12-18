@@ -13,6 +13,8 @@ const queries = {
     INNER JOIN users AS u
     ON e.user_id=u.user_id
     WHERE event_id=$1;`,
+    getCities:`SELECT DISTINCT city 
+    FROM events;`,
     createEvent: `INSERT INTO events(title, image, city, address, description, event_time, event_date, user_id)
     VALUES ($1, $2, $3, $4, $5, $6, $7,
     (SELECT user_id FROM users WHERE email=$8));`,
