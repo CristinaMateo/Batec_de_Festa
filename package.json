@@ -25,9 +25,7 @@
     "jsonwebtoken": "^9.0.2",
     "node-fetch": "^3.3.2",
     "passport": "^0.7.0",
-    "pg": "^8.11.3",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.0"
+    "pg": "^8.11.3"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
