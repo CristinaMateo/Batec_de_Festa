@@ -1,11 +1,13 @@
 const queries = {
     getEvents: `SELECT title, city, image, event_time, event_date, event_id,address,description
-    FROM events;`,
+    FROM events
+    ORDER BY event_date;`,
     getMyEvents: `SELECT title, city, e.image, event_time, event_date, event_id,address,description
     FROM events AS e
     INNER JOIN users AS u
     ON e.user_id=u.user_id
-    WHERE u.email = $1;`,
+    WHERE u.email = $1
+    ORDER BY event_date;`,
     getOneEvent: `SELECT title, city, e.image, event_time, event_date, event_id, address, description, u.email
     FROM events AS e
     INNER JOIN users AS u
