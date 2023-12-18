@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import axios from 'axios'
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate()
 
   const {
     register,
@@ -19,12 +21,15 @@ const Login = () => {
     try {
       const response = await axios.post(`http://localhost:3000/login`, User)
       sessionStorage.setItem('auth', JSON.stringify(response.data));
+      sessionStorage.setItem('email', JSON.stringify(response.data.loggedEmail))
     } catch (error) {
       console.error("Error on log in", error);
     }
 
     reset()
+    navigate('/')
     location.reload()
+    
   }
 
   return (

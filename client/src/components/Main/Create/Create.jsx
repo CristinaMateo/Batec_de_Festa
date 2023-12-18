@@ -10,6 +10,8 @@ const Create = () => {
     console.log("User not logged")
     return <Navigate to="/auth" />
   }
+  const email = sessionStorage.getItem("email")
+  
 
   const {
     register,
@@ -23,13 +25,14 @@ const Create = () => {
       title: data.title,
       image: data.image,
       city: data.city,
-      location: data.location,
+      address: data.location,
       description: data.description,
       event_time: data.event_time,
       event_date: data.event_date
     }
 
     try {
+      
       axios.post(`http://localhost:3000/api/myevents/${email}`, Event)
     } catch (error) {
       console.error("Error creating event", error);
