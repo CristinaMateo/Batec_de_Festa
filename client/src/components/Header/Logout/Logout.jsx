@@ -7,6 +7,7 @@ const Logout = () => {
   const logout = () => {
     sessionStorage.removeItem('auth')
     sessionStorage.removeItem('email')
+    sessionStorage.removeItem('username')
     navigate('/')
     location.reload()
   }

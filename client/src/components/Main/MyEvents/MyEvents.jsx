@@ -40,6 +40,7 @@ const MyEvents = () => {
   return (
     <>
       <section id="myevents">
+        <h2>Els meus esdeveniments</h2>
         {isLoading && <Loader />}
         <article className="event-container">
           {!isLoading && myEvents &&

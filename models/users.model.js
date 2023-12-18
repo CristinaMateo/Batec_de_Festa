@@ -8,12 +8,12 @@ const saltRounds = 10;
 
 
 const createUser = async (infouser) => {
-    const { email, username, password, image } = infouser;
+    const { email, username, password} = infouser;
     const hashPassword = await bcrypt.hash(password, saltRounds)
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.createUser, [username, email, image, hashPassword])
+        const data = await client.query(queries.createUser, [username, email, hashPassword])
         result = data.rowCount
     } catch (err) {
         console.log(err);

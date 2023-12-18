@@ -1,9 +1,9 @@
 const queries ={
-    createUser: `INSERT INTO users(username,email,image,password)
+    createUser: `INSERT INTO users(username,email,password)
     VALUES
-    ($1, $2, $3, $4);`,
+    ($1, $2, $3);`,
     getUsersByEmail: `
-    SELECT username, email, image, password 
+    SELECT username, email, password 
     FROM users
     WHERE email=$1;`
 }

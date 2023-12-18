@@ -15,7 +15,6 @@ const Signup = () => {
     const User = {
       email: data.email,
       username: data.username,
-      image: data.image,
       password: data.password,
       pass2: data.pass2
     }
@@ -41,10 +40,6 @@ const Signup = () => {
         <label htmlFor="username">Nom d'usuari:</label>
         <input type="text" {...register("username", { required: true })} />
         {errors.username && <span>Obligatori</span>}
-
-        <label htmlFor="image">Imatge:</label>
-        <input type="text" {...register("image", { required: true })} />
-        {errors.image && <span>Obligatori</span>}
 
         <label htmlFor="password">Contrassenya:</label>
         <input type="password" {...register("password", { required: true })} />
