@@ -11,3 +11,36 @@
     margin: 50px auto;
     padding-bottom: 20px;
 }
+
+.delete-button{
+    margin: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #eventDet{
+        width: 90%;
+    }
+}
+
+
+    
+@media screen and (max-width: 1000px) {
+    .eventDetImg{
+        width: 50%;
+    }
+    #eventDet{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .eventDetImg{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .eventDetImg{
+        width: 90%;
+    }
+}

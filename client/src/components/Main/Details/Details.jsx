@@ -59,12 +59,10 @@ const Details = () => {
 
   return (
     <section>
+      <h2>Detalls de l'esdeveniment</h2>
       {isLoading && <Loader />}
       {!isLoading && eventDet &&
         <article id="eventDet">
-
-          <h2>Detalls de l'esdeveniment</h2>
-
           <h3>{eventDet.title}</h3>
           <h4>{eventDet.city}</h4>
           <p>On? <br />{eventDet.address}</p>
@@ -75,7 +73,7 @@ const Details = () => {
           <br />
           <span>
             {loggedUser && loggedemail === eventDet.email &&
-              <button onClick={deleteEvent}>Eliminar aquest esdeveniment</button>}
+              <button className="delete-button" onClick={deleteEvent}>Eliminar aquest esdeveniment</button>}
           </span>
           <br />
           <span>

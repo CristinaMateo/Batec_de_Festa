@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      La teva festa a un batec de distància
+      <p id="footer">La teva festa a un batec de distància</p>
     </footer>
   );
 };
