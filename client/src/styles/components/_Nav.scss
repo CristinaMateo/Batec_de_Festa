@@ -4,6 +4,9 @@ nav {
     display: flex;
     justify-content: center;
     line-height: 20%;
+    background-color: $lightgr;
+    width: 70%;
+    margin:auto;
 }
 
 nav>a {
@@ -17,7 +20,7 @@ nav>a {
     }
 
     &:hover {
-        background-color: $lightgr ;
+        background-color: $ultragr ;
         
     }
 }
@@ -49,5 +52,16 @@ a:hover {
 @media screen and (max-width: 800px) {
     nav{   
         flex-direction: column;
+       
       }
+}
+
+
+@media screen and (max-width: 865px) {
+  nav>a{   
+      line-height: 80%;
+    }
+    nav{
+      width: 100%;
+    }
 }

@@ -1,22 +1,50 @@
 @import '../utils/variables.scss';
 
-.new{
+.new {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
     width: 40%;
-    margin: 0px auto;
     padding: 10px;
-}
-.new>button, .new>label{
-    margin-top:20px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-h2{
+.new>button,
+.new>label {
+    margin-top: 20px;
+}
+
+h2 {
     margin: 10px auto !important;
 }
 
-#sign{
+#sign {
     margin-top: 70px;
+}
+
+input {
+    border-radius: 10px;
+    padding: 5px;
+    width: 90%;
+    height: 30px;
+    margin: 0.5rem;
+
+    &:focus {
+        background-color: $lightor;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .new {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .new {
+        width: 100%;
+        margin: auto;
+    }
 }

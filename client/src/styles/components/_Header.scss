@@ -1,9 +1,5 @@
 @import '../utils/variables.scss';
 
-#logo{
-width: 30%;
-margin: auto;
-}
 
 header{
     margin: 1.1em auto;
@@ -14,4 +10,8 @@ header{
 .logout{
   display: flex;
   justify-content: end;
+ margin-bottom: 5px;
 }
+
+
+

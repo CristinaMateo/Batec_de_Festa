@@ -11,7 +11,7 @@ const Create = () => {
     return <Navigate to="/auth" />
   }
   const email = sessionStorage.getItem("email")
-  
+
 
   const {
     register,
@@ -32,7 +32,7 @@ const Create = () => {
     }
 
     try {
-      
+
       axios.post(`/api/myevents/${email}`, Event)
     } catch (error) {
       console.error("Error creating event", error);
@@ -41,38 +41,42 @@ const Create = () => {
   }
 
   return (
-    <form className="new" onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="title">Títol de l'esdeveniment:</label>
-      <input type="text" {...register("title", { required: true, minLength: 3 })} />
-      {errors.title && <span>El títol ha de tenir un mínim de tres caracters. Obligatori</span>}
+    <section>
+      <h2>Crea un esdeveniment</h2>
 
-      <label htmlFor="image">Afageix imatge:</label>
-      <input type="text" {...register("image", { required: true })} />
-      {errors.image && <span>Obligatori</span>}
+      <form className="new" onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="title">Títol de l'esdeveniment:</label>
+        <input type="text" {...register("title", { required: true, minLength: 3 })} />
+        {errors.title && <span>El títol ha de tenir un mínim de tres caracters. Obligatori</span>}
 
-      <label htmlFor="city">Ciutat:</label>
-      <input type="text" {...register("city", { required: true })} />
-      {errors.city && <span>Obligatori</span>}
+        <label htmlFor="image">Afageix imatge:</label>
+        <input type="text" {...register("image", { required: true })} />
+        {errors.image && <span>Obligatori</span>}
 
-      <label htmlFor="location">Adreça:</label>
-      <input type="text" {...register("location", { required: true })} />
-      {errors.location && <span>Obligatori</span>}
+        <label htmlFor="city">Ciutat:</label>
+        <input type="text" {...register("city", { required: true })} />
+        {errors.city && <span>Obligatori</span>}
 
-      <label htmlFor="description">Descripció:</label>
-      <input type="text" {...register("description", { required: true })} />
-      {errors.description && <span>Obligatori</span>}
+        <label htmlFor="location">Adreça:</label>
+        <input type="text" {...register("location", { required: true })} />
+        {errors.location && <span>Obligatori</span>}
 
-      <label htmlFor="event_time">Hora:</label>
-      <input type="time" {...register("event_time", { required: true })} />
-      {errors.event_time && <span>Obligatori</span>}
+        <label htmlFor="description">Descripció:</label>
+        <input type="text" {...register("description", { required: true })} />
+        {errors.description && <span>Obligatori</span>}
 
-      <label htmlFor="event_date">Data:</label>
-      <input type="date" {...register("event_date", { required: true })} />
-      {errors.event_date && <span>Obligatori</span>}
+        <label htmlFor="event_time">Hora:</label>
+        <input type="time" {...register("event_time", { required: true })} />
+        {errors.event_time && <span>Obligatori</span>}
+
+        <label htmlFor="event_date">Data:</label>
+        <input type="date" {...register("event_date", { required: true })} />
+        {errors.event_date && <span>Obligatori</span>}
 
 
-      <button >Crear</button>
-    </form>
+        <button >Crear</button>
+      </form>
+    </section>
   );
 };
 
