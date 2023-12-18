@@ -1,17 +1,24 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import { whoIsLogged } from "../../Main/Authentication/utils";
 
 
 const Nav = () => {
+  const loggedUser = whoIsLogged()
   return (
     <nav>
-        <ul className="nav-bar">
-            {/* <li><Link className={'link'} to='/'>Home</Link></li>
-            <li><Link className={'link'} to='/search'>Search</Link></li>
-            <li><Link className={'link'} to='/new'>New Pokemon</Link></li> */}
-        </ul >
+      <Link className={'link'} to='/'>Inici</Link>
+      {!loggedUser &&<Link className={'link'} to='/auth'>Registre</Link>}
+      
+      {loggedUser &&
+        <>
+          <Link className={'link'} to='/create'>Crear esdeveniment</Link>
+          <Link className={'link'} to='/myevents'>Els meus esdeveniments</Link>
+          
+          
+        </>}
     </nav >
-)
+  )
 };
 
 export default Nav;

@@ -6,19 +6,13 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-  const [newPokeList, setnewPokeList] = useState([]);
 
-  const addPokemon = (newPokemon) =>{
-    setnewPokeList([...newPokeList,newPokemon])
-  }
-
-  const pokeData ={newPokeList, addPokemon };
 
   return (
     <>
       <BrowserRouter>
         <Header />
-          <Main />
+        <Main />
       </BrowserRouter>
       <Footer />
     </>

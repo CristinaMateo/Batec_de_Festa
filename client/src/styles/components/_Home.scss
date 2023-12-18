@@ -1,0 +1,16 @@
+@import '../utils/variables.scss';
+
+p, h3{
+    color:$magnolia;
+}
+
+#cities{
+    color: $lightgr;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: $lightor;
+}
+
+h2{
+    text-decoration: underline;
+}

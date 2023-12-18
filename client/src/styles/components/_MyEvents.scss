@@ -1,0 +1,10 @@
+@import '../utils/variables.scss';
+.update-link{
+    color:$orange;
+    &:hover{
+        background-color: $lightgr;
+    }
+    &:active{
+        color:$purple;
+    }
+}

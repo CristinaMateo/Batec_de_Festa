@@ -1,0 +1,50 @@
+@import '../utils/variables.scss';
+
+.new {
+    display: flex;
+    flex-wrap: wrap;
+    width: 40%;
+    padding: 10px;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.new>button,
+.new>label {
+    margin-top: 20px;
+}
+
+h2 {
+    margin: 10px auto !important;
+}
+
+#sign {
+    margin-top: 70px;
+}
+
+input {
+    border-radius: 10px;
+    padding: 5px;
+    width: 90%;
+    height: 30px;
+    margin: 0.5rem;
+
+    &:focus {
+        background-color: $lightor;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .new {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .new {
+        width: 100%;
+        margin: auto;
+    }
+}
