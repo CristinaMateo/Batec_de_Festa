@@ -75,12 +75,12 @@ DELETE FROM events AS e
 
 
   --Crear nuevo usuario (POST)
-  INSERT INTO users(username,email,image,password)
+  INSERT INTO users(username,email,password)
     VALUES
     ($1, $2, $3, $4);
 
 
 --get info de usuario por email para proceso de login
-   SELECT username, email, image, password 
+   SELECT username, email, password 
     FROM users
     WHERE email=$1;
