@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <nav>
       <Link className={'link'} to='/'>Inici</Link>
-      <Link className={'link'} to='/auth'>Registre</Link>
+      {!loggedUser &&<Link className={'link'} to='/auth'>Registre</Link>}
       
       {loggedUser &&
         <>
