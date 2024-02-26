@@ -1,6 +1,6 @@
 # Batec de festa
 
-https://partypulse-ynvm.onrender.com/
+[Visit web site](https://partypulse-ynvm.onrender.com/)
 
 (ES) Este proyecto es el último dentro del marco de la formación troncal en el bootcamp Desarrollo Web Full Stack en The Bridge. Representa la unión de todo lo aprendido en los últimos meses y una evolución en el aprendizaje. La interfaz de usuario está en catalán con la intención de dar visibilidad a esta lengua por ser minoritaria y una de mis lenguas vehiculares.
 
